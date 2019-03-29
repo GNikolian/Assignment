@@ -1,0 +1,98 @@
+package com;
+
+public class Rover {
+    private String name;
+    private int xPosition;
+    private int yPosition;
+    private char compassPoint;
+    private int maxXPosition;
+    private int maxYPosition;
+
+
+    public Rover(String name, int xPosition, int yPosition, char compassPoint) {
+        this.name = name;
+        this.xPosition = xPosition;
+        this.yPosition = yPosition;
+        this.compassPoint = compassPoint;
+    }
+    public void scanTerrain(int x, int y){
+        this.maxXPosition = x;
+        this.maxYPosition = y;
+        System.out.println(this.maxXPosition + " " + this.maxYPosition);
+    }
+
+    public void setCompassPoint(char compassPoint) {
+        this.compassPoint = compassPoint;
+    }
+
+    private boolean doesExists(String name) {
+        if (this.name == name) {
+            return true;
+        } else return false;
+    }
+
+    public void printPosition(String name) {
+        if (doesExists(name)) {
+            System.out.println(this.xPosition + " " + this.yPosition + " " + this.compassPoint);
+        } else {
+            System.out.println("No rover with this name found");
+        }
+    }
+
+    public void move(char action) {
+        switch (action) {
+            case 'M':
+                if (this.compassPoint == 'E') {
+                    if (this.xPosition < this.maxXPosition) {
+                        this.xPosition++;
+                    } else {
+                        System.out.println("Out of x range");
+                    }
+                } else if (this.compassPoint == 'W') {
+                    if (this.xPosition > 0) {
+                        this.xPosition--;
+                    } else {
+                        System.out.println("You are at the start of x range");
+                    }
+                } else if (this.compassPoint == 'N') {
+                    if (this.yPosition < this.maxYPosition) {
+                        this.yPosition++;
+                    } else {
+                        System.out.println("Out of y range");
+                    }
+                } else if (this.compassPoint == 'S') {
+                    if (this.yPosition > 0) {
+                        this.yPosition--;
+                    } else {
+                        System.out.println("You are at the start of y range");
+                    }
+                }
+                break;
+            case 'L':
+                if (this.compassPoint == 'E') {
+                    setCompassPoint('N');
+                } else if (this.compassPoint == 'N') {
+                    setCompassPoint('W');
+                }else if (this.compassPoint == 'W') {
+                    setCompassPoint('S');
+                }else if (this.compassPoint == 'S') {
+                    setCompassPoint('E');
+                }
+                break;
+            case 'R':
+                if (this.compassPoint == 'E') {
+                    setCompassPoint('S');
+                } else if (this.compassPoint == 'S') {
+                    setCompassPoint('W');
+                }else if (this.compassPoint == 'W') {
+                    setCompassPoint('N');
+                }else if (this.compassPoint == 'N') {
+                    setCompassPoint('E');
+                }
+                break;
+                default:
+                    System.out.println("Wrong action");
+                    break;
+        }
+    }
+}
