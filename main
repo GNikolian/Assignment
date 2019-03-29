@@ -1,0 +1,83 @@
+package com.nikolian;
+
+import com.Rover;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Rover firstRover = new Rover("Pegasus",6,3,'N');
+        Rover secondRover = new Rover("Amanda",8,8,'W');
+        Rover thirdRover = new Rover("Jupiter",5,5,'S');
+        Rover fourthRover = new Rover("Odyssey",0,3,'E');
+
+        firstRover.scanTerrain(10,10);
+        firstRover.printPosition("Pegasus");
+
+        //First rover move
+        firstRover.move('M');
+        firstRover.move('R');
+        firstRover.move('M');
+        firstRover.move('L');
+        firstRover.move('M');
+        firstRover.move('M');
+        firstRover.move('L');
+        firstRover.move('M');
+        firstRover.move('M');
+        firstRover.move('R');
+        firstRover.printPosition("Pegasus");
+        System.out.println(" ");
+
+
+        secondRover.scanTerrain(10,10);
+        secondRover.printPosition("Amanda");
+
+        //Second rover move
+        secondRover.move('R');
+        secondRover.move('M');
+        secondRover.move('M');
+        secondRover.move('M');
+        secondRover.move('L');
+        secondRover.move('M');
+        secondRover.move('M');
+        secondRover.move('R');
+        secondRover.move('M');
+        secondRover.move('L');
+        secondRover.printPosition("Amanda");
+        System.out.println(" ");
+
+        thirdRover.scanTerrain(10,10);
+        thirdRover.printPosition("Jupiter");
+
+        //Third rover move
+        thirdRover.move('M');
+        thirdRover.move('M');
+        thirdRover.move('M');
+        thirdRover.move('R');
+        thirdRover.move('R');
+        thirdRover.move('R');
+        thirdRover.move('R');
+        thirdRover.move('M');
+        thirdRover.move('M');
+        thirdRover.move('M');
+        thirdRover.printPosition("Jupiter");
+        System.out.println(" ");
+
+
+        fourthRover.scanTerrain(10,10);
+        fourthRover.printPosition("Odyssey");
+
+        //Fourth rover move
+        fourthRover.move('L');
+        fourthRover.move('L');
+        fourthRover.move('M');
+        fourthRover.move('R');
+        fourthRover.move('M');
+        fourthRover.move('M');
+        fourthRover.move('M');
+        fourthRover.move('R');
+        fourthRover.move('R');
+        fourthRover.move('M');
+        fourthRover.printPosition("Odyssey");
+    }
+}
